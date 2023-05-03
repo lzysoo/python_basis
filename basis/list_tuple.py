@@ -45,3 +45,7 @@ print(L)
 # tuple
 # tuple有序，但不可变
 # 无append()、insert()类似方法
+
+T = ('a', 'b', ['A', 'B'])
+T[2][0] = 'X'
+print(T)
