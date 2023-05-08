@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# dict
+'''
+   dict
+'''
 # 键-值（key-value）存储
 # 一个key只能对应一个value，所以，当多次对一个key放入value，后面的值会把前面的值冲掉
 # 与list相比，dict优缺点：
@@ -19,7 +21,9 @@ print(d.get('tomes', -1)) # 通过get方法，也可自己指定value，默认�
 d.pop('Bob')
 print(d)
 
-# set
+'''
+   set
+'''
 # 是一组key的集合，但不存储value
 # 无重复key，重复元素在set中会自动过滤
 
