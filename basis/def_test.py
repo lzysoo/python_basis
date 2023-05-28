@@ -142,3 +142,45 @@ def f1(a, b, c = 0, *args, **kw):
 args = (1, 2, 3, 4)
 kw = {'d': 99, 'x': '#'}
 f1(*args, **kw) # a= 1 b= 2 c= 3 args= (4,) kw= {'d': 99, 'x': '#'} ,为什么 a b c分别为1 2 3
+
+# 练习，一个或多个数的乘机
+def mul(*num):
+    muls = 1;
+    for x in num:
+        muls = muls * x
+    return muls
+print(mul(5))
+print(mul(5,6))
+print(mul(5,6,7))
+print(mul(5,6,7,9))
+
+'''
+    递归函数
+'''
+def fact(n):
+    if n == 1:
+        return 1
+    return n * fact(n - 1)  # return语句包含了表达式
+print(fact(1))
+print(fact(5))
+# print(fact(1000)) # RecursionError: maximum recursion depth exceeded in comparison
+
+# 递归调用次数太多容易出现栈溢出的情况
+# 解决栈溢出的方法是通过 尾递归 优化
+# 尾递归指：在函数返回的时候，调用自身本身，并且，return语句不能包含表达式
+# 使用尾递归，递归本身调用多少次，都只占用一个栈帧，不会出现栈溢出的现象
+
+def fact1(n):
+    return fact_iter(n, 1)
+
+def fact_iter(num, product):
+    if num == 1:
+        return product
+    return fact_iter(num - 1, num * product) # 该return语句仅返回递归函数本身，num - 1 和 num * product 在函数调用前就会被计算
+
+# 但python标准的解释器没有针对尾递归做优化，任何递归函数都存在栈溢出的问题
+
+# 练习--汉诺塔
+# def move(n, a, b, c):
+#     if n == 1:
+        
